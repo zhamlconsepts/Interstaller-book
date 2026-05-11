@@ -1,74 +1,598 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interstellar | CSS Storytelling</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interstellar — Scrolly Experience</title>
+  <meta name="description" content="Interstellar kinosi haqida to'liq scrolly sayt — har bir sahnani bosqichma-bosqich kuzating." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/main.css" />
 </head>
 <body>
 
-    <!-- Navigatsiya -->
-    <nav class="glass-nav">
-        <div class="logo">INTERSTELLAR</div>
-        <ul>
-            <li><a href="#home">Gargantua</a></li>
-            <li><a href="#story">Sarguzasht</a></li>
-            <li><a href="#bookmark-section">Xatcho'p</a></li>
-        </ul>
-    </nav>
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SCROLL PROGRESS BAR
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Sahifa davomi"></div>
 
-    <!-- Header Section -->
-    <header id="home" class="hero">
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <h1 class="glitch" data-text="VAQT - BU O'LCHAM">VAQT - BU O'LCHAM</h1>
-            <p>Insoniyat yerda tug'ilgan bo'lishi mumkin, ammo bu yerda o'lishi shart emas.</p>
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CHAPTER NAVIGATOR (right side dots)
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <nav class="chapter-nav" id="chapterNav" aria-label="Boblar navigatsiyasi">
+    <button class="chapter-dot" data-target="hero"          title="Boshlanish">      <span class="dot-label">Boshlanish</span></button>
+    <button class="chapter-dot" data-target="earth"         title="Yer">             <span class="dot-label">Yer</span></button>
+    <button class="chapter-dot" data-target="nasa"          title="NASA">            <span class="dot-label">NASA</span></button>
+    <button class="chapter-dot" data-target="launch"        title="Uchish">          <span class="dot-label">Uchish</span></button>
+    <button class="chapter-dot" data-target="wormhole"      title="Qurtdesha">       <span class="dot-label">Qurtdesha</span></button>
+    <button class="chapter-dot" data-target="miller"        title="Miller">          <span class="dot-label">Miller</span></button>
+    <button class="chapter-dot" data-target="gargantua"     title="Gargantua">       <span class="dot-label">Gargantua</span></button>
+    <button class="chapter-dot" data-target="mann"          title="Mann">            <span class="dot-label">Mann</span></button>
+    <button class="chapter-dot" data-target="tesseract"     title="Tessarakt">       <span class="dot-label">Tessarakt</span></button>
+    <button class="chapter-dot" data-target="murph"         title="Murph">           <span class="dot-label">Murph</span></button>
+    <button class="chapter-dot" data-target="transcendence" title="Transcendensiya"> <span class="dot-label">Transcendensiya</span></button>
+    <button class="chapter-dot" data-target="new-beginning" title="Yakun">           <span class="dot-label">Yangi Boshlanish</span></button>
+  </nav>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       I. HERO
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="hero" class="section section--hero">
+    <div class="stars-layer stars-a"></div>
+    <div class="stars-layer stars-b"></div>
+
+    <!-- ▶ RASM: Kino posteri yoki kosmik fon (to'liq qoplaydigan) -->
+    <div class="hero-bg-img">
+      <img src="" alt="Interstellar — kosmik fon" class="img-fill"
+           data-placeholder="Hero fon rasmi — Interstellar posteri yoki kosmik ko'rinish" />
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-tagline">Christopher Nolan · 2014</p>
+      <h1 class="hero-title">INTERSTELLAR</h1>
+      <p class="hero-sub">Insoniyatning so'nggi umidi — yulduzlar orasida</p>
+      <div class="hero-poem">
+        <p>"Do not go gentle into that good night,</p>
+        <p>Old age should burn and rave at close of day;</p>
+        <p>Rage, rage against the dying of the light."</p>
+        <span class="poem-author">— Dylan Thomas</span>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Pastga aylantiring</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       II. EARTH
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="earth" class="section section--earth">
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Sahna I</span>
+      <h2 class="section-title reveal">Yer yemirilmoqda</h2>
+      <p class="section-text reveal">
+        21-asr oxiri. Sayyoramiz o'layapti. Chang bo'ronlari ekinzorlarni vayron qiladi,
+        oziq-ovqat tanqisligi insoniyatni qirib bormoqda. Nasaning sobiq uchuvchisi
+        Cooper o'z fermasi va farzandlari bilan umid yo'qolgan dunyoda yashaydi.
+      </p>
+
+      <!-- ▶ RASM: Cooper fermasi / chang bo'roni sahnasi -->
+      <figure class="img-block reveal">
+        <img src="" alt="Cooper fermasi — chang bo'roni"
+             data-placeholder="Cooper fermasi yoki chang bo'roni sahnasi rasmi" />
+        <figcaption>Cooper fermasi — chang bo'roni ostida</figcaption>
+      </figure>
+
+      <blockquote class="quote reveal">
+        "Biz qishloqchilar bo'lib qoldik — insoniyatning oxirgi avlodi."
+        <cite>— Cooper</cite>
+      </blockquote>
+
+      <div class="card-grid three-col reveal">
+        <div class="info-card neon-card">
+          <div class="card-icon">🌾</div>
+          <h4>Oziq-ovqat inqirozi</h4>
+          <p>Bug'doy, sholi, makkajo'xori ketma-ket nobud bo'lmoqda</p>
         </div>
-    </header>
-
-    <!-- Storytelling Section -->
-    <main id="story">
-        <section class="chapter sticky-bg" style="--bg-url: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=2072&auto=format&fit=crop');">
-            <div class="content-box">
-                <h2>01. Changli Dunyo</h2>
-                <p>Yer o'lmoqda. Ekinlar qurib, chang bo'ronlari hayotni bo'g'ib bormoqda. Kuper sobiq uchuvchi, endi esa oddiy dehqon, ammo uning taqdiri yulduzlar orasida ekanini u hali bilmaydi.</p>
-            </div>
-        </section>
-
-        <section class="chapter sticky-bg" style="--bg-url: url('https://images.unsplash.com/photo-1462332420958-a05d1e002413?q=80&w=1940&auto=format&fit=crop');">
-            <div class="content-box neon-border">
-                <h2>02. Gargantua Yaqinida</h2>
-                <p>Vaqt nisbiydir. Miller sayyorasidagi bir soat, Yerdagi yetti yilga teng. Har bir soniya — ortga qaytarib bo'lmas yo'qotishdir. Qora tuynukning cheksiz qudrati barchani o'ziga tortadi.</p>
-            </div>
-        </section>
-
-        <section class="chapter sticky-bg" style="--bg-url: url('https://images.unsplash.com/photo-1506318137071-a8e063b497a1?q=80&w=1920&auto=format&fit=crop');">
-            <div class="content-box">
-                <h2>03. Tesserakt va Beshinchi O'lcham</h2>
-                <p>Kitob javoni ortidagi cheksizlik. Kuper vaqt bo'ylab sayohat qilib, o'tmishdagi qiziga xabar yo'llaydi: "STAY". Muhabbat — biz tushunib yetmagan yagona o'lchamdir.</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Bookmark System (Faqat HTML/CSS) -->
-    <section id="bookmark-section" class="bookmark-area">
-        <h3>Qayerda to'xtadingiz? (Xatcho'p)</h3>
-        <div class="bookmark-grid">
-            <input type="radio" name="save" id="ch1"><label for="ch1">1-bob</label>
-            <input type="radio" name="save" id="ch2"><label for="ch2">2-bob</label>
-            <input type="radio" name="save" id="ch3"><label for="ch3">3-bob</label>
-            <div class="save-status">Tizim holati: <span class="status-text">Tanlanmagan</span></div>
+        <div class="info-card neon-card">
+          <div class="card-icon">💨</div>
+          <h4>Chang bo'roni</h4>
+          <p>Atmosfera cho'kishi bilan nafas olish qiyinlashmoqda</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>© 2026 Interstellar Experience. Murphy's Law: "Anything that can go wrong, will go wrong."</p>
-            <div class="neon-line"></div>
+        <div class="info-card neon-card">
+          <div class="card-icon">👨‍👧</div>
+          <h4>Cooper va Murph</h4>
+          <p>Otaning sevgisi va qizining dahosi — insoniyat umidi</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       III. NASA
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="nasa" class="section section--nasa">
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Sahna II</span>
+      <h2 class="section-title reveal">Yashirin NASA</h2>
+      <p class="section-text reveal">
+        Gravitatsion anomaliya Cooperni yashirin NASA bazasiga olib keladi.
+        Professor Brand u yerda ulkan sirni ochib beradi: insoniyatni qutqarish
+        uchun yulduzlararo ekspeditsiya kerak. Cooper bu missiyaning kaliti.
+      </p>
+
+      <!-- ▶ RASM: NASA baza ichki ko'rinishi yoki Endurance kemasi -->
+      <figure class="img-block reveal">
+        <img src="" alt="NASA yashirin baza — Endurance kemasi"
+             data-placeholder="NASA yashirin baza yoki Endurance kema loyihasi rasmi" />
+        <figcaption>Endurance — yulduzlararasi kema loyihasi</figcaption>
+      </figure>
+
+      <blockquote class="quote reveal">
+        "Insoniyat Yerning beshigi — ammo bir kun beshikni tark etish kerak."
+        <cite>— Professor Brand</cite>
+      </blockquote>
+
+      <div class="stats-row reveal">
+        <div class="stat-item neon-card">
+          <span class="stat-num">12</span>
+          <span class="stat-label">Ilk razvedka uchuvchisi</span>
+        </div>
+        <div class="stat-item neon-card">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Istiqbolli sayyora</span>
+        </div>
+        <div class="stat-item neon-card">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Insoniyatning kelajagi</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       IV. LAUNCH
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="launch" class="section section--launch">
+    <div class="stars-layer stars-a"></div>
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Sahna III</span>
+      <h2 class="section-title reveal">Uchish — Yulduzlarga</h2>
+      <p class="section-text reveal">
+        Endurance kemasi Saturn orbitasiga yo'l oladi. Cooper farzandlarini tark etib,
+        insoniyatni qutqarish uchun yulduzlarga uchadi. Murphning ko'z yoshlari
+        va otaning og'ir yuki...
+      </p>
+
+      <!-- ▶ RASM: Raketa uchish sahnasi -->
+      <figure class="img-block img-block--wide reveal">
+        <img src="" alt="Endurance uchishi"
+             data-placeholder="Endurance raketa uchish sahnasi rasmi" />
+        <figcaption>Endurance — Yerdan uchish lahzasi</figcaption>
+      </figure>
+
+      <blockquote class="quote reveal">
+        "Murph, biz har doim erta tug'ilgan odamlarmiz. Vaqti kelib yetib olamiz."
+        <cite>— Cooper</cite>
+      </blockquote>
+
+      <!-- ▶ RASM: Ekipaj portretlari -->
+      <div class="crew-grid reveal">
+        <div class="crew-card neon-card">
+          <img src="" alt="Cooper" class="crew-photo"
+               data-placeholder="Cooper portret rasmi" />
+          <div class="crew-info">
+            <h4>Cooper</h4>
+            <p>Pilot va missiya rahbari</p>
+          </div>
+        </div>
+        <div class="crew-card neon-card">
+          <img src="" alt="Amelia Brand" class="crew-photo"
+               data-placeholder="Amelia Brand portret rasmi" />
+          <div class="crew-info">
+            <h4>Amelia Brand</h4>
+            <p>Olim va razvedkachilar qizi</p>
+          </div>
+        </div>
+        <div class="crew-card neon-card">
+          <img src="" alt="Romilly" class="crew-photo"
+               data-placeholder="Romilly portret rasmi" />
+          <div class="crew-info">
+            <h4>Romilly</h4>
+            <p>Fizika va qurtdesha mutaxassisi</p>
+          </div>
+        </div>
+        <div class="crew-card neon-card">
+          <img src="" alt="TARS" class="crew-photo"
+               data-placeholder="TARS robot rasmi" />
+          <div class="crew-info">
+            <h4>TARS</h4>
+            <p>Robot — hazil darajasi 75%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       V. WORMHOLE
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="wormhole" class="section section--wormhole">
+    <div class="stars-layer stars-a"></div>
+    <div class="stars-layer stars-b"></div>
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Sahna IV</span>
+      <h2 class="section-title reveal">Qurtdesha</h2>
+      <p class="section-text reveal">
+        Saturn yonida sirli bir ob'ekt paydo bo'lgan — qurtdesha. Uch o'lchovli
+        qurtdesha orqali boshqa galaktikaga o'tish mumkin. "Ular" kimlar bu
+        yo'lni qurib qo'ygan?
+      </p>
+
+      <!-- ▶ RASM: Qurtdesha tasviri (kino kadri) -->
+      <figure class="img-block img-block--wide reveal">
+        <img src="" alt="Qurtdesha — Saturn yonida"
+             data-placeholder="Qurtdesha (wormhole) kino kadri rasmi — Saturn orbitasida" />
+        <figcaption>Qurtdesha — Saturn orbitasida paydo bo'lgan sirli ob'ekt</figcaption>
+      </figure>
+
+      <blockquote class="quote reveal">
+        "Qurtdesha uch o'lchovli, ya'ni shar shaklida — kimdir uni bizga hadya etdi."
+        <cite>— Romilly</cite>
+      </blockquote>
+
+      <div class="info-card neon-card neon-card--blue reveal">
+        <h4>💡 Ilmiy haqiqat</h4>
+        <p>
+          Kip Thorne (Nobel laureati, 2017) qurtdesha fizikasini to'liq ilmiy asosda
+          loyihaladi. Gargantua — ilmiy nuqtai nazardan o'sha paytgacha yaratilgan
+          eng aniq qora tuynuk tasviridir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       VI. MILLER
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="miller" class="section section--miller">
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Sahna V</span>
+      <h2 class="section-title reveal">Miller Sayyorasi</h2>
+      <p class="section-text reveal">
+        Gargantua qora tuynugi yaqinidagi suv sayyorasi. Gravitatsion kengayish
+        sababli har bir soat Yerdagi 7 yilga teng. Ulkan to'lqinlar...
+        va dahshatli haqiqat.
+      </p>
+
+      <!-- ▶ RASM: Miller sayyorasi — ulkan to'lqinlar sahnasi -->
+      <figure class="img-block img-block--wide reveal">
+        <img src="" alt="Miller sayyorasi — ulkan to'lqin"
+             data-placeholder="Miller sayyorasi ulkan to'lqin sahnasi rasmi (1,2 km balandlikdagi to'lqin)" />
+        <figcaption>Miller sayyorasi — to'lqin balandligi 1,2 km</figcaption>
+      </figure>
+
+      <div class="time-card neon-card reveal">
+        <div class="time-compare">
+          <div class="time-side">
+            <span class="time-num">1</span>
+            <span class="time-unit">soat</span>
+            <span class="time-place">Miller sayyorasi</span>
+          </div>
+          <span class="time-eq">=</span>
+          <div class="time-side">
+            <span class="time-num">7</span>
+            <span class="time-unit">yil</span>
+            <span class="time-place">Yer</span>
+          </div>
+        </div>
+        <p class="time-note">Gravitatsion vaqt kengayishi — Einstein nazariyasi amalda</p>
+      </div>
+
+      <blockquote class="quote reveal">
+        "Biz yerga qaytganimizda Murph 35 yoshda bo'ladi."
+        <cite>— Brand</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       VII. GARGANTUA
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="gargantua" class="section section--gargantua">
+    <div class="stars-layer stars-a"></div>
+    <div class="stars-layer stars-b"></div>
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Sahna VI</span>
+      <h2 class="section-title reveal">Gargantua</h2>
+      <p class="section-text reveal">
+        Supermassiv qora tuynuk — Gargantua. Ufq atrofida nur egrilanib to'liq halqa
+        hosil qiladi. Uning yoniga borish — vaqt va makonning o'zini anglashdir.
+      </p>
+
+      <!-- ▶ RASM: Gargantua qora tuynuk (akkresiya diski bilan) -->
+      <figure class="img-block img-block--wide reveal">
+        <img src="" alt="Gargantua qora tuynuk"
+             data-placeholder="Gargantua qora tuynuk tasviri — akkresiya diski va gravitatsion lensing bilan" />
+        <figcaption>Gargantua — 100 million quyosh massasiga teng qora tuynuk</figcaption>
+      </figure>
+
+      <div class="card-grid three-col reveal">
+        <div class="physics-card neon-card neon-card--gold">
+          <h4>Singularity</h4>
+          <p>Fizika qonunlari buzilgan nuqta — cheksiz zichlik</p>
+        </div>
+        <div class="physics-card neon-card neon-card--gold">
+          <h4>Event Horizon</h4>
+          <p>Orqaga qaytib bo'lmaydigan chegara — yorug'lik ham qochib chiqolmaydi</p>
+        </div>
+        <div class="physics-card neon-card neon-card--gold">
+          <h4>Gravitatsion Lensing</h4>
+          <p>Yorug'lik egrilanib qora tuynuk atrofida halqa hosil qiladi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       VIII. MANN
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="mann" class="section section--mann">
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Sahna VII</span>
+      <h2 class="section-title reveal">Mann Sayyorasi — Xiyonat</h2>
+      <p class="section-text reveal">
+        Muz qoplagan Mann sayyorasi. Dr. Mann omon qolgan — lekin u xiyonat qildi.
+        Yolg'on ma'lumotlar yubordi, chunki yolg'izligi uni sindirdi.
+        Eng dahshatli xavf — odamning o'zi.
+      </p>
+
+      <!-- ▶ RASM: Mann muz sayyorasi panoramasi -->
+      <figure class="img-block img-block--wide reveal">
+        <img src="" alt="Mann muz sayyorasi"
+             data-placeholder="Mann sayyorasi — muz va tuman ichida, sovuq manzara rasmi" />
+        <figcaption>Mann sayyorasi — muz va tuman ichida</figcaption>
+      </figure>
+
+      <blockquote class="quote reveal">
+        "Tabiat insonni tirik qolish uchun har narsaga qodir qiladi — hatto yolg'on gapirish uchun ham."
+        <cite>— Dr. Mann</cite>
+      </blockquote>
+
+      <!-- ▶ RASM: Endurance portlash / burilish sahnasi -->
+      <figure class="img-block reveal">
+        <img src="" alt="Endurance kemasi portlash sahnasi"
+             data-placeholder="Endurance kemasi portlash yoki burilish sahnasi rasmi" />
+        <figcaption>Endurance — deyarli halok bo'lgan lahza</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       IX. TESSERACT
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="tesseract" class="section section--tesseract">
+    <div class="stars-layer stars-b"></div>
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Sahna VIII</span>
+      <h2 class="section-title reveal">Tessarakt — 5-o'lcham</h2>
+      <p class="section-text reveal">
+        Cooper Gargantua ichiga tushadi. U yo'q bo'lmaydi — u tessarakt ichida.
+        5-o'lchovli fazoda vaqt makon sifatida ko'rinadi. Cooper Murphning
+        xonasini turli vaqtlarda ko'radi.
+      </p>
+
+      <!-- ▶ RASM: Tessarakt — Cooper kitob javonlar orasida -->
+      <figure class="img-block img-block--wide reveal">
+        <img src="" alt="Tessarakt — kitob javonlar orasida Cooper"
+             data-placeholder="Tessarakt sahnasi — Cooper sonsiz kitob javonlar orasida 5-o'lchov rasmi" />
+        <figcaption>Tessarakt — 5-o'lchovli makon, vaqt ko'rinadigan joy</figcaption>
+      </figure>
+
+      <blockquote class="quote quote--purple reveal">
+        "LOVE, Cooper. Sevgi — vaqt va makondan tashqaridagi yagona kuch."
+        <cite>— Brand</cite>
+      </blockquote>
+
+      <div class="card-grid three-col reveal">
+        <div class="timeline-card neon-card neon-card--purple">
+          <span class="tl-year">2003</span>
+          <p>Murph 10 yoshda — kutubxonada "avliyolar"</p>
+        </div>
+        <div class="timeline-card neon-card neon-card--purple">
+          <span class="tl-year">2014</span>
+          <p>Murph ketishiga qarshi chiqadi</p>
+        </div>
+        <div class="timeline-card neon-card neon-card--purple">
+          <span class="tl-year">2067</span>
+          <p>Murph formulani yechmoqda — Cooper signali!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       X. MURPH
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="murph" class="section section--murph">
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Sahna IX</span>
+      <h2 class="section-title reveal">Murphning Qonuni</h2>
+      <p class="section-text reveal">
+        Murphy Cooper o'sdi — u buyuk olima bo'ldi. Otasining yuborgan gravitatsion
+        ma'lumotlari soatda yashiringan edi. Formulani yechdi: insoniyat Yerni
+        tark etishga tayyor.
+      </p>
+
+      <!-- ▶ RASM: Murph katta bo'lib formulani hal qilayotganda -->
+      <figure class="img-block reveal">
+        <img src="" alt="Murph va gravitatsion formula"
+             data-placeholder="Murph — katta bo'lib gravitatsion formulani hal qilayotgan sahnasi rasmi" />
+        <figcaption>Murph — gravitatsion formulani yechish lahzasi</figcaption>
+      </figure>
+
+      <div class="equation-box reveal">
+        <div class="eq-inner">
+          G<sub>μν</sub> + Λg<sub>μν</sub> = 8π<span class="eq-hl">T<sub>μν</sub></span>
+        </div>
+        <p class="eq-caption">Umumiy nisbiylik tenglamasi — Murph hal qilgan formula</p>
+      </div>
+
+      <blockquote class="quote reveal">
+        "Murphy's law: yuz berishi mumkin bo'lgan narsa — albatta yuz beradi."
+        <cite>— Cooper</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       XI. TRANSCENDENCE
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="transcendence" class="section section--transcendence">
+    <div class="stars-layer stars-a"></div>
+    <div class="stars-layer stars-b"></div>
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Sahna X</span>
+      <h2 class="section-title reveal">Transcendensiya</h2>
+      <p class="section-text reveal">
+        Tessarakt yo'qoladi. Cooper Saturn yonida topiladi. "Ular" — kelajakdagi
+        insonlar — 5-o'lchovli kosmosni qurishgan. Ular Cooper orqali
+        insoniyatni qutqardilar. Sevgi — kosmik kuch.
+      </p>
+
+      <!-- ▶ RASM: Cooper Saturn yonida uyg'onishi / kosmik nur sahnasi -->
+      <figure class="img-block reveal">
+        <img src="" alt="Cooper Saturn yonida uyg'onishi"
+             data-placeholder="Cooper Saturn halqalari yonida uyg'onish yoki kosmik nur sahnasi rasmi" />
+        <figcaption>Cooper — Saturnning halqalari yaqinida topildi</figcaption>
+      </figure>
+
+      <div class="card-grid three-col reveal">
+        <div class="reveal-card neon-card neon-card--purple">
+          <div class="rev-icon">🌀</div>
+          <h4>"Ular" kim?</h4>
+          <p>Kelajakdagi insoniyat — 5-o'lchovli mavjudotlar</p>
+        </div>
+        <div class="reveal-card neon-card neon-card--purple">
+          <div class="rev-icon">💗</div>
+          <h4>Sevgining kuchi</h4>
+          <p>Muhabbat — vaqt va makonni engib o'tuvchi yagona kuch</p>
+        </div>
+        <div class="reveal-card neon-card neon-card--purple">
+          <div class="rev-icon">♾️</div>
+          <h4>Vaqt davra</h4>
+          <p>Insoniyat o'zini o'zi qutqardi — davra yopildi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       XII. NEW BEGINNING
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section id="new-beginning" class="section section--newbeginning">
+    <div class="stars-layer stars-a"></div>
+    <div class="stars-layer stars-b"></div>
+    <div class="section-inner">
+      <span class="chapter-badge reveal">Yakun</span>
+      <h2 class="section-title reveal">Yangi Boshlanish</h2>
+      <p class="section-text reveal">
+        Cooper uyg'onadi. Insoniyat Yerni tark etgan — ulkan kosmik stantsiyalarda
+        yashaydi. U Murphni ko'radi — qari, g'olib. Keyin Cooper yana yo'lga
+        chiqadi — Amelia Brand sayyorasiga.
+      </p>
+
+      <!-- ▶ RASM: Kosmik stantsiya ichki ko'rinishi (Cooper Stasyoni) -->
+      <figure class="img-block img-block--wide reveal">
+        <img src="" alt="Kosmik stantsiya — yangi uy"
+             data-placeholder="Kosmik stantsiya (Cooper stantsiyasi) — insoniyatning yangi uyi rasmi" />
+        <figcaption>Insoniyatning yangi uyi — Cooper stantsiyasi</figcaption>
+      </figure>
+
+      <!-- ▶ RASM: Cooper va keksa Murph uchrashishi -->
+      <figure class="img-block reveal">
+        <img src="" alt="Cooper va keksa Murph uchrashishi"
+             data-placeholder="Cooper va katta Murph — so'nggi xayrlashuv sahnasi rasmi" />
+        <figcaption>Cooper va keksa Murph — so'nggi uchrashuv</figcaption>
+      </figure>
+
+      <blockquote class="quote quote--final reveal">
+        "Biz yulduzlardan keldik — endi yulduzlarga qaytamiz."
+      </blockquote>
+
+      <div class="credits reveal">
+        <div class="credit-item">Rejissyor: <strong>Christopher Nolan</strong></div>
+        <div class="credit-item">Musiqa: <strong>Hans Zimmer</strong></div>
+        <div class="credit-item">Ilmiy maslahatchi: <strong>Kip Thorne (Nobel 2017)</strong></div>
+        <div class="credit-item">Yil: <strong>2014</strong> · Davomiyligi: <strong>169 daqiqa</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Fan art loyiha · Faqat ta'lim maqsadida · Interstellar © Warner Bros. 2014</p>
+  </footer>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    /* ── SCROLL PROGRESS BAR ─────────────────── */
+    const progressBar = document.getElementById('scrollProgress');
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    /* ── CHAPTER NAVIGATION DOTS ─────────────── */
+    const dots = Array.from(document.querySelectorAll('.chapter-dot'));
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+
+    // Smooth scroll on click
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const el = document.getElementById(dot.dataset.target);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Active dot via IntersectionObserver
+    const dotObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          dots.forEach(d => d.classList.toggle('active', d.dataset.target === id));
+        }
+      });
+    }, { rootMargin: '-35% 0px -60% 0px', threshold: 0 });
+
+    sections.forEach(s => dotObserver.observe(s));
+
+    /* ── REVEAL ON SCROLL ────────────────────── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ── IMAGE PLACEHOLDERS ──────────────────── */
+    // Show styled placeholder when src is empty
+    document.querySelectorAll('img[data-placeholder]').forEach(img => {
+      if (!img.src || img.src.endsWith('/') || img.getAttribute('src') === '') {
+        img.classList.add('img-empty');
+        img.setAttribute('alt', img.dataset.placeholder);
+      }
+    });
+  </script>
 </body>
 </html>
